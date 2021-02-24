@@ -11,10 +11,12 @@ stopRef.addEventListener('click', handleStop);
 
 function handleStart() {
   console.log('аквадискотека');
-  startRef.removeEventListener('click', handleStart);
+  startRef.disabled = true;
+  // startRef.removeEventListener('click', handleStart);
   timerId = setInterval(changeColor, 1000);
 }
 function handleStop() {
+  startRef.disabled = false;
   clearInterval(timerId);
   startRef.addEventListener('click', handleStart);
 }
